@@ -100,6 +100,16 @@ namespace MovieTutorial.Texts {
                 export const MovieId: string;
                 export const MovieTitle: string;
             }
+
+            namespace Person {
+                export const BirthDate: string;
+                export const BirthPlace: string;
+                export const FirstName: string;
+                export const Gender: string;
+                export const Height: string;
+                export const Lastname: string;
+                export const PersonId: string;
+            }
         }
     }
 
@@ -269,7 +279,8 @@ namespace MovieTutorial.Texts {
             MovieDB: {
                 Genre: {},
                 Movie: {},
-                MovieGenres: {}
+                MovieGenres: {},
+                Person: {}
             }
         },
         Forms: {

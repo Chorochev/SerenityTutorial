@@ -76,6 +76,11 @@ namespace MovieTutorial.Texts {
 
         namespace MovieDB {
 
+            namespace Genre {
+                export const GenreId: string;
+                export const Name: string;
+            }
+
             namespace Movie {
                 export const Description: string;
                 export const Kind: string;
@@ -253,6 +258,7 @@ namespace MovieTutorial.Texts {
                 UserRole: {}
             },
             MovieDB: {
+                Genre: {},
                 Movie: {}
             }
         },

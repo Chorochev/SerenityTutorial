@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
@@ -6,9 +6,10 @@ using System.ComponentModel;
 namespace MovieTutorial.MovieDB;
 
 [ConnectionKey("Default"), Module("MovieDB"), TableName("[mov].[Genre]")]
-[DisplayName("Genre"), InstanceName("Genre")]
+[DisplayName("Genres"), InstanceName("Genres")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
+[LookupScript("MovieDB.Genre")]
 public sealed class GenreRow : Row<GenreRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Genre Id"), Identity, IdProperty]

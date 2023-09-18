@@ -69,6 +69,22 @@ public sealed class MovieRow : Row<MovieRow.RowFields>, IIdRow, INameRow
         set => fields.Kind[this] = value;
     }
 
+    [DisplayName("Genre"), ForeignKey("[mov].Genre", "GenreId"), LeftJoin("g")]
+    //[LookupEditor("MovieDB.Genre")]
+    [LookupEditor(typeof(GenreRow), InplaceAdd = true, DialogType = "MovieDB.Genre")]
+    public int? GenreId
+    {
+        get => fields.GenreId[this];
+        set => fields.GenreId[this] = value;
+    }
+
+    [DisplayName("Genre"), Expression("g.Name")]
+    public string GenreName
+    {
+        get => fields.GenreName[this];
+        set => fields.GenreName[this] = value;
+    }
+
     public class RowFields : RowFieldsBase
     {
         public Int32Field MovieId;
@@ -79,5 +95,7 @@ public sealed class MovieRow : Row<MovieRow.RowFields>, IIdRow, INameRow
         public DateTimeField ReleaseDate;
         public Int32Field Runtime;
         public EnumField<MovieKind> Kind;
+        public Int32Field GenreId;
+        public StringField GenreName;
     }
 }

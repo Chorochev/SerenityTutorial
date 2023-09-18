@@ -83,6 +83,8 @@ namespace MovieTutorial.Texts {
 
             namespace Movie {
                 export const Description: string;
+                export const GenreId: string;
+                export const GenreName: string;
                 export const Kind: string;
                 export const MovieId: string;
                 export const ReleaseDate: string;

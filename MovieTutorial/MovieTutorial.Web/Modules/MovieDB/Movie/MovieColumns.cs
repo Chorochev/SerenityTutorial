@@ -18,7 +18,7 @@ public class MovieColumns
     public int Year { get; set; }
     public DateTime ReleaseDate { get; set; }
 
-    [Width(120), GenreListFormatter]
+    [Width(120), GenreListFormatter, QuickFilter]
     public List<int> GenreList { get; set; }
   
     [DisplayName("Runtime in Minutes"), Width(140), AlignRight]

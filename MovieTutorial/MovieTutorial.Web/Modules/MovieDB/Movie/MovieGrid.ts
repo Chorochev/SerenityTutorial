@@ -1,4 +1,4 @@
-﻿import { Decorators, EntityGrid } from '@serenity-is/corelib';
+import { Decorators, EntityGrid, QuickSearchField } from '@serenity-is/corelib';
 import { MovieColumns, MovieRow, MovieService } from '@/ServerTypes/MovieDB';
 import { MovieDialog } from './MovieDialog';
 
@@ -12,4 +12,15 @@ export class MovieGrid extends EntityGrid<MovieRow, any> {
     constructor(container: JQuery) {
         super(container);
     }
+
+    protected getQuickSearchFields(): QuickSearchField[] {
+        const fld = MovieRow.Fields;
+        return [
+            { name: "", title: "all" },
+            { name: fld.Description, title: "description" },
+            { name: fld.Storyline, title: "storyline" },
+            { name: fld.Year, title: "year" }
+        ];
+    }
+
 }

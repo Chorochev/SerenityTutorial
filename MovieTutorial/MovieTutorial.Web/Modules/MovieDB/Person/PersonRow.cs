@@ -10,6 +10,7 @@ namespace MovieTutorial.MovieDB;
 [DisplayName("Person"), InstanceName("Person")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
+[LookupScript("MovieDB.Person")]
 public sealed class PersonRow : Row<PersonRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Person Id"), Identity, IdProperty]
@@ -19,7 +20,7 @@ public sealed class PersonRow : Row<PersonRow.RowFields>, IIdRow, INameRow
         set => fields.PersonId[this] = value;
     }
 
-    [DisplayName("First Name"), Size(50), NotNull, QuickSearch, NameProperty]
+    [DisplayName("First Name"), Size(50), NotNull]
     public string FirstName
     {
         get => fields.FirstName[this];
@@ -31,6 +32,13 @@ public sealed class PersonRow : Row<PersonRow.RowFields>, IIdRow, INameRow
     {
         get => fields.Lastname[this];
         set => fields.Lastname[this] = value;
+    }
+
+    [DisplayName("Full Name"), Concat("t0.FirstName", "' '", "t0.Lastname"), QuickSearch, NameProperty]
+    public string Fullname
+    {
+        get => fields.Fullname[this];
+        set => fields.Fullname[this] = value;
     }
 
     [DisplayName("Birth Date")]
@@ -66,6 +74,7 @@ public sealed class PersonRow : Row<PersonRow.RowFields>, IIdRow, INameRow
         public Int32Field PersonId;
         public StringField FirstName;
         public StringField Lastname;
+        public StringField Fullname;
         public DateTimeField BirthDate;
         public StringField BirthPlace;
         public EnumField<Gender> Gender;

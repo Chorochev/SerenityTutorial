@@ -88,3 +88,15 @@
 .s-MovieTutorial-MovieDB-MovieDialog .caption {
   width: 150px;
 }
+
+.s-MovieDB-MovieCastEditDialog > .size {
+  width: 450px;
+}
+
+.s-MovieDB-MovieCastEditDialog .caption {
+  width: 120px;
+}
+
+.s-MovieDB-MovieCastEditDialog .s-PropertyGrid .categories {
+  height: 95px;
+}

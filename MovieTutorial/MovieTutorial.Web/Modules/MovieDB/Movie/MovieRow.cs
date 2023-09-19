@@ -79,6 +79,14 @@ public sealed class MovieRow : Row<MovieRow.RowFields>, IIdRow, INameRow
         set => fields.GenreList[this] = value;
     }
 
+    [MasterDetailRelation(foreignKey: "MovieId", IncludeColumns = "PersonFullname")]
+    [DisplayName("Cast List"), NotMapped]
+    public List<MovieCastRow> CastList
+    {
+        get => fields.CastList[this];
+        set => fields.CastList[this] = value;
+    }
+
     public class RowFields : RowFieldsBase
     {
         public Int32Field MovieId;
@@ -90,5 +98,6 @@ public sealed class MovieRow : Row<MovieRow.RowFields>, IIdRow, INameRow
         public Int32Field Runtime;
         public EnumField<MovieKind> Kind;
         public ListField<Int32> GenreList;
+        public RowListField<MovieCastRow> CastList;
     }
 }

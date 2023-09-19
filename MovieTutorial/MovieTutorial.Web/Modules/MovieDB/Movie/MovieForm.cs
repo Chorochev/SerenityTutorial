@@ -14,6 +14,10 @@ public class MovieForm
     [TextAreaEditor(Rows = 3)]
     public string Description { get; set; }
 
+    //[MovieCastEditor, IgnoreName]
+    [EditorType("MovieDB.MovieCast"), IgnoreName]
+    public List<MovieCastRow> CastList { get; set; }
+
     [TextAreaEditor(Rows = 8)]
     public string Storyline { get; set; }
     public int Year { get; set; }

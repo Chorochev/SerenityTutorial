@@ -2,6 +2,7 @@ import { Decorators, EntityDialog } from '@serenity-is/corelib';
 import { PersonForm, PersonRow, PersonService } from '@/ServerTypes/MovieDB';
 
 @Decorators.registerClass('MovieTutorial.MovieDB.PersonDialog')
+@Decorators.panel()
 export class PersonDialog extends EntityDialog<PersonRow, any> {
     protected getFormKey() { return PersonForm.formKey; }
     protected getIdProperty() { return PersonRow.idProperty; }

@@ -17,6 +17,8 @@ public class MovieForm
     //[MovieCastEditor, IgnoreName]
     [EditorType("MovieDB.MovieCast"), IgnoreName]
     public List<MovieCastRow> CastList { get; set; }
+    public string PrimaryImage { get; set; }
+    public string GalleryImages { get; set; }
 
     [TextAreaEditor(Rows = 8)]
     public string Storyline { get; set; }

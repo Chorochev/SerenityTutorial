@@ -10,6 +10,8 @@ export interface PersonRow {
     BirthPlace?: string;
     Gender?: Gender;
     Height?: number;
+    PrimaryImage?: string;
+    GalleryImages?: string;
 }
 
 export abstract class PersonRow {

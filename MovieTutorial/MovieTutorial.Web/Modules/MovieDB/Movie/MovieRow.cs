@@ -87,6 +87,20 @@ public sealed class MovieRow : Row<MovieRow.RowFields>, IIdRow, INameRow
         set => fields.CastList[this] = value;
     }
 
+    [DisplayName("Primary Image"), Size(100), ImageUploadEditor(FilenameFormat = "Movie/PrimaryImage/~")]
+    public string PrimaryImage
+    {
+        get => fields.PrimaryImage[this];
+        set => fields.PrimaryImage[this] = value;
+    }
+
+    [DisplayName("Gallery Images"), MultipleImageUploadEditor(FilenameFormat = "Movie/GalleryImages/~")]
+    public string GalleryImages
+    {
+        get => fields.GalleryImages[this];
+        set => fields.GalleryImages[this] = value;
+    }
+
     public class RowFields : RowFieldsBase
     {
         public Int32Field MovieId;
@@ -99,5 +113,7 @@ public sealed class MovieRow : Row<MovieRow.RowFields>, IIdRow, INameRow
         public EnumField<MovieKind> Kind;
         public ListField<Int32> GenreList;
         public RowListField<MovieCastRow> CastList;
+        public StringField PrimaryImage;
+        public StringField GalleryImages;
     }
 }

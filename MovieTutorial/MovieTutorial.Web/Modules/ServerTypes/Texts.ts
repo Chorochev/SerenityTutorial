@@ -99,6 +99,7 @@ namespace MovieTutorial.Texts {
                 export const MovieCastId: string;
                 export const MovieId: string;
                 export const MovieTitle: string;
+                export const MovieYear: string;
                 export const PersonFirstName: string;
                 export const PersonFullname: string;
                 export const PersonId: string;

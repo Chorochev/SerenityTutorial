@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 
 namespace MovieTutorial.MovieDB.Forms;
@@ -7,10 +7,14 @@ namespace MovieTutorial.MovieDB.Forms;
 [BasedOnRow(typeof(PersonRow), CheckNames = true)]
 public class PersonForm
 {
+    [Tab("Person")]
     public string FirstName { get; set; }
     public string Lastname { get; set; }
     public DateTime BirthDate { get; set; }
     public string BirthPlace { get; set; }
-    public int Gender { get; set; }
-    public int Height { get; set; }
+    public Gender Gender { get; set; }
+    public int Height { get; set; }       
+
+    [Tab("Movies"), IgnoreName, PersonMovieGrid, LabelWidth("0")]
+    public string MoviesGrid { get; set; }
 }

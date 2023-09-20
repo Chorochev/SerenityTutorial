@@ -100,3 +100,7 @@
 .s-MovieDB-MovieCastEditDialog .s-PropertyGrid .categories {
   height: 95px;
 }
+
+.s-MovieDB-PersonDialog .s-PersonMovieGrid > .grid-container {
+  height: 186px;
+}

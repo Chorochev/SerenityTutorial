@@ -13,4 +13,10 @@ export class PersonDialog extends EntityDialog<PersonRow, any> {
     protected getUpdatePermission() { return PersonRow.updatePermission; }
 
     protected form = new PersonForm(this.idPrefix);
+
+    protected afterLoadEntity() {
+        super.afterLoadEntity();
+
+        this.form.MoviesGrid.personID = this.entityId;
+    }
 }

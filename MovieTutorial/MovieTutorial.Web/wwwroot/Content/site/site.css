@@ -79,3 +79,28 @@
 .s-PermissionCheckEditor .effective-permission.deny {
   background-image: url(../serenity/images/slash.png);
 }
+
+.s-MovieTutorial-MovieDB-MovieDialog > .size {
+  width: 650px;
+  height: 450px;
+}
+
+.s-MovieTutorial-MovieDB-MovieDialog .caption {
+  width: 150px;
+}
+
+.s-MovieDB-MovieCastEditDialog > .size {
+  width: 450px;
+}
+
+.s-MovieDB-MovieCastEditDialog .caption {
+  width: 120px;
+}
+
+.s-MovieDB-MovieCastEditDialog .s-PropertyGrid .categories {
+  height: 95px;
+}
+
+.s-MovieDB-PersonDialog .s-PersonMovieGrid > .grid-container {
+  height: 500px;
+}

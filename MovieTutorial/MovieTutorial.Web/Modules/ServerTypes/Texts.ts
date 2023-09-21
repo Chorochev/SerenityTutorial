@@ -73,6 +73,62 @@ namespace MovieTutorial.Texts {
                 export const Username: string;
             }
         }
+
+        namespace MovieDB {
+
+            namespace Genre {
+                export const GenreId: string;
+                export const Name: string;
+            }
+
+            namespace Movie {
+                export const CastList: string;
+                export const Description: string;
+                export const GalleryImages: string;
+                export const GenreList: string;
+                export const Kind: string;
+                export const MovieId: string;
+                export const PrimaryImage: string;
+                export const ReleaseDate: string;
+                export const Runtime: string;
+                export const Storyline: string;
+                export const Title: string;
+                export const Year: string;
+            }
+
+            namespace MovieCast {
+                export const Character: string;
+                export const MovieCastId: string;
+                export const MovieId: string;
+                export const MovieTitle: string;
+                export const MovieYear: string;
+                export const PersonFirstName: string;
+                export const PersonFullname: string;
+                export const PersonId: string;
+                export const PersonLastname: string;
+            }
+
+            namespace MovieGenres {
+                export const GenreId: string;
+                export const GenreName: string;
+                export const MovieGenreId: string;
+                export const MovieId: string;
+                export const MovieTitle: string;
+            }
+
+            namespace Person {
+                export const BirthDate: string;
+                export const BirthPlace: string;
+                export const FirstName: string;
+                export const Fullname: string;
+                export const GalleryImages: string;
+                export const Gender: string;
+                export const Height: string;
+                export const Lastname: string;
+                export const PersonId: string;
+                export const PrimaryImage: string;
+            }
+        }
     }
 
     export declare namespace Forms {
@@ -237,6 +293,13 @@ namespace MovieTutorial.Texts {
                 User: {},
                 UserPermission: {},
                 UserRole: {}
+            },
+            MovieDB: {
+                Genre: {},
+                Movie: {},
+                MovieCast: {},
+                MovieGenres: {},
+                Person: {}
             }
         },
         Forms: {

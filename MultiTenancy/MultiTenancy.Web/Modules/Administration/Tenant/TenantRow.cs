@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
@@ -9,6 +9,7 @@ namespace MultiTenancy.Administration;
 [DisplayName("Tenant"), InstanceName("Tenant")]
 [ReadPermission("Administration:Tenants")]
 [ModifyPermission("Administration:Tenants")]
+[LookupScript("Administration.Tenant")]
 public sealed class TenantRow : Row<TenantRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Tenant Id"), Identity, IdProperty]

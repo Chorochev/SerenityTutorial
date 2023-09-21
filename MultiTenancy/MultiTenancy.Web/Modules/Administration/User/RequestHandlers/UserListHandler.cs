@@ -1,4 +1,5 @@
-﻿using Serenity.Services;
+using Serenity.Data;
+using Serenity.Services;
 using MyRequest = MultiTenancy.Administration.UserListRequest;
 using MyResponse = Serenity.Services.ListResponse<MultiTenancy.Administration.UserRow>;
 using MyRow = MultiTenancy.Administration.UserRow;
@@ -12,6 +13,18 @@ namespace MultiTenancy.Administration
         public UserListHandler(IRequestContext context)
              : base(context)
         {
+        }
+
+        protected override void ApplyFilters(SqlQuery query)
+        {
+            base.ApplyFilters(query);
+
+            query.Where(MyRow.Fields.TenantId == User.GetTenantId());
+
+            if (Permissions.HasPermission(PermissionKeys.Tenants))
+                return;
+
+            //query.Where(MyRow.Fields.TenantId == User.GetTenantId());
         }
     }
 }

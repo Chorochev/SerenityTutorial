@@ -1,9 +1,10 @@
-﻿using Serenity;
+using Serenity;
 using Serenity.Abstractions;
 using Serenity.Data;
 using System;
 using System.Data;
 using System.Globalization;
+using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
 using MyRow = MultiTenancy.Administration.UserRow;
@@ -39,7 +40,8 @@ namespace MultiTenancy.Administration
                     PasswordHash = user.PasswordHash,
                     PasswordSalt = user.PasswordSalt,
                     UpdateDate = user.UpdateDate,
-                    LastDirectoryUpdate = user.LastDirectoryUpdate
+                    LastDirectoryUpdate = user.LastDirectoryUpdate,
+                    TenantId = user.TenantId.Value
                 };
 
             return null;
@@ -76,8 +78,7 @@ namespace MultiTenancy.Administration
                 cache.Remove("UserByName_" + username.ToLowerInvariant());
         }
 
-        public static ClaimsPrincipal CreatePrincipal(IUserRetrieveService userRetriever, string username,
-            string authType)
+        public static ClaimsPrincipal CreatePrincipal(IUserRetrieveService userRetriever, string username, string authType)
         {
             if (userRetriever is null)
                 throw new ArgumentNullException(nameof(userRetriever));
@@ -85,7 +86,7 @@ namespace MultiTenancy.Administration
             if (username is null)
                 throw new ArgumentNullException(nameof(username));
 
-            var user = userRetriever.ByUsername(username);
+            var user = (UserDefinition)userRetriever.ByUsername(username);
             if (user == null)
                 throw new ArgumentOutOfRangeException(nameof(username));
 
@@ -94,8 +95,27 @@ namespace MultiTenancy.Administration
 
             var identity = new GenericIdentity(username, authType);
             identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
+            identity.AddClaim(new Claim("TenantId", user.TenantId.ToInvariant())); // add tenant id claim
 
             return new ClaimsPrincipal(identity);
+        }
+    }
+}
+
+namespace MultiTenancy.Administration
+{
+    public static class ClaimsPrincipalExtensions
+    {
+        public static int GetTenantId(this ClaimsPrincipal user)
+        {
+            if (user is null)
+                throw new ArgumentNullException(nameof(user));
+
+            var tenantClaim = user.Claims.FirstOrDefault(x => x.Type == "TenantId");
+            if (tenantClaim is null)
+                throw new NullReferenceException("TenantId claim not found");
+
+            return int.Parse(tenantClaim.Value);
         }
     }
 }

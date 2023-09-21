@@ -19,12 +19,12 @@ namespace MultiTenancy.Administration
         {
             base.ApplyFilters(query);
 
-            query.Where(MyRow.Fields.TenantId == User.GetTenantId());
+            //query.Where(MyRow.Fields.TenantId == User.GetTenantId());
 
             if (Permissions.HasPermission(PermissionKeys.Tenants))
                 return;
 
-            //query.Where(MyRow.Fields.TenantId == User.GetTenantId());
+            query.Where(MyRow.Fields.TenantId == User.GetTenantId());
         }
     }
 }

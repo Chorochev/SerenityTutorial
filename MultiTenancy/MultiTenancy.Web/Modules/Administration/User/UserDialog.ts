@@ -1,7 +1,7 @@
 import { UserForm, UserRow, UserService } from "../";
 import { UserPermissionDialog } from "../UserPermission/UserPermissionDialog";
 import { Decorators, EditorUtils, EntityDialog } from "@serenity-is/corelib"
-import { format, localText } from "@serenity-is/corelib/q";
+import { Authorization, format, localText } from "@serenity-is/corelib/q";
 import { Texts } from "@/ServerTypes/Texts";
 
 @Decorators.registerClass()
@@ -67,5 +67,12 @@ export class UserDialog extends EntityDialog<UserRow, any> {
             .closest('.field').find('sup').toggle(this.isNew());
         this.form.PasswordConfirm.element.toggleClass('required', this.isNew())
             .closest('.field').find('sup').toggle(this.isNew());
+    }
+
+    protected getPropertyItems() {
+        var items = super.getPropertyItems();
+        if (!Authorization.hasPermission("Administration:Tenants"))
+            items = items.filter(x => x.name != UserRow.Fields.TenantId);
+        return items;
     }
 }

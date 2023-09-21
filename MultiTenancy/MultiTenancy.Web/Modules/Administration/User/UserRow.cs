@@ -100,7 +100,8 @@ namespace MultiTenancy.Administration
         }
 
         [DisplayName("Tenant"), ForeignKey("Tenants", "TenantId"), LeftJoin("tnt")]
-        [LookupEditor(typeof(TenantRow))]
+        [LookupEditor(typeof(TenantRow))]        
+        [ReadPermission(PermissionKeys.Tenants)]
         public int? TenantId
         {
             get => Fields.TenantId[this];

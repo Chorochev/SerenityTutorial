@@ -24,6 +24,11 @@ namespace MultiTenancy.Texts {
                 export const RoleRoleName: string;
             }
 
+            namespace Tenant {
+                export const TenantId: string;
+                export const TenantName: string;
+            }
+
             namespace Translation {
                 export const CustomText: string;
                 export const EntityPlural: string;
@@ -233,6 +238,7 @@ namespace MultiTenancy.Texts {
                 Language: {},
                 Role: {},
                 RolePermission: {},
+                Tenant: {},
                 Translation: {},
                 User: {},
                 UserPermission: {},

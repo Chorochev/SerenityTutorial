@@ -54,6 +54,8 @@ namespace MultiTenancy.Texts {
                 export const PasswordSalt: string;
                 export const Roles: string;
                 export const Source: string;
+                export const TenantId: string;
+                export const TenantName: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
                 export const UserId: string;

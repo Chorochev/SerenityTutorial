@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System.Collections.Generic;
 
 namespace MultiTenancy.Administration.Forms
@@ -21,5 +21,6 @@ namespace MultiTenancy.Administration.Forms
         public string PasswordConfirm { get; set; }
         [OneWay]
         public string Source { get; set; }
+        public int? TenantId { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System;
@@ -99,6 +99,21 @@ namespace MultiTenancy.Administration
             set => fields.LastDirectoryUpdate[this] = value;
         }
 
+        [DisplayName("Tenant"), ForeignKey("Tenants", "TenantId"), LeftJoin("tnt")]
+        [LookupEditor(typeof(TenantRow))]
+        public int? TenantId
+        {
+            get => Fields.TenantId[this];
+            set => Fields.TenantId[this] = value;
+        }
+
+        [DisplayName("Tenant"), Expression("tnt.TenantName")]
+        public string TenantName
+        {
+            get => Fields.TenantName[this];
+            set => Fields.TenantName[this] = value;
+        }
+
         [DisplayName("Roles"), LinkingSetRelation(typeof(UserRoleRow), nameof(UserRoleRow.UserId), nameof(UserRoleRow.RoleId))]
         [LookupEditor(typeof(RoleRow), Multiple = true)]
         public List<int> Roles
@@ -132,6 +147,8 @@ namespace MultiTenancy.Administration
             public StringField Email;
             public StringField UserImage;
             public DateTimeField LastDirectoryUpdate;
+            public Int32Field TenantId;
+            public StringField TenantName;
             public Int16Field IsActive;
 
             public StringField Password;

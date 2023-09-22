@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RESTService.Models;
+using System.Reflection;
 
 namespace RESTService.Controllers
 {
@@ -8,8 +9,9 @@ namespace RESTService.Controllers
     public class BooksController : Controller
     {
         private List<Book> books = new List<Book>() {
-                new Book() { Id = 1, Title = "Мастер и Маргарита", Info = "Про любовь." },
-                new Book() { Id = 2, Title = "Война и Мир", Info = "Про войну." } };
+                new Book() { Id = 1, Title = "Остров сокровищ", Info = "Приключения про поиск пиратских сокровищ." },
+                new Book() { Id = 2, Title = "Мастер и Маргарита", Info = "Про любовь." },
+                new Book() { Id = 3, Title = "Война и Мир", Info = "Про войну." } };
 
         [HttpGet]
         [Route("")]

@@ -15,6 +15,7 @@ namespace MultiTenancy.Texts {
             namespace Role {
                 export const RoleId: string;
                 export const RoleName: string;
+                export const TenantId: string;
             }
 
             namespace RolePermission {

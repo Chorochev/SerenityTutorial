@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System;
@@ -13,6 +13,13 @@ namespace MultiTenancy.Administration
     [LookupScript]
     public sealed class RoleRow : Row<RoleRow.RowFields>, IIdRow, INameRow
     {
+        [Insertable(false), Updatable(false)]
+        public int? TenantId
+        {
+            get => Fields.TenantId[this];
+            set => Fields.TenantId[this] = value;
+        }
+
         [DisplayName("Role Id"), Identity, ForeignKey("Roles", "RoleId"), LeftJoin("jRole"), IdProperty]
         public Int32? RoleId
         {
@@ -38,6 +45,7 @@ namespace MultiTenancy.Administration
 
         public class RowFields : RowFieldsBase
         {
+            public Int32Field TenantId;
             public Int32Field RoleId;
             public StringField RoleName;
         }

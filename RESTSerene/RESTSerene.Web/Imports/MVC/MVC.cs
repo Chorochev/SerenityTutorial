@@ -5,6 +5,11 @@ public static class Views
 {
     public static class Common
     {
+        public static class Books
+        {
+            public const string BooksIndex = "~/Modules/Common/Books/BooksIndex.cshtml";
+        }
+
         public static class Dashboard
         {
             public const string DashboardIndex = "~/Modules/Common/Dashboard/DashboardIndex.cshtml";

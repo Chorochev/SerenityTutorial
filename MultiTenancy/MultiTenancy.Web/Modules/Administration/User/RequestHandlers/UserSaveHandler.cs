@@ -66,6 +66,9 @@ namespace MultiTenancy.Administration
 
             if (IsUpdate)
             {
+                if (Old.TenantId != User.GetTenantId())
+                    Permissions.ValidatePermission(PermissionKeys.Tenants, Context.Localizer);
+
                 environmentOptions.CheckPublicDemo(Row.UserId);
 
                 if (Row.Username != Old.Username)

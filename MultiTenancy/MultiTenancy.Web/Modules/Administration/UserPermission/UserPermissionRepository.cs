@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Caching.Memory;
 using MultiTenancy.Administration;
 using Serenity;
 using Serenity.Abstractions;
@@ -236,6 +236,7 @@ namespace MultiTenancy.Administration.Repositories
                             ProcessAttributes<PermissionAttributeBase>(result, member, x => x.Permission);
                 }
 
+                result.Remove(Administration.PermissionKeys.Tenants);
                 result.Remove("ImpersonateAs");
                 result.Remove("*");
                 result.Remove("?");

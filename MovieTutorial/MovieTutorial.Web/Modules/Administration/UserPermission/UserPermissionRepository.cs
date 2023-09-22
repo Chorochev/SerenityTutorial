@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Caching.Memory;
 using MovieTutorial.Administration;
 using Serenity;
 using Serenity.Abstractions;
@@ -18,9 +18,19 @@ namespace MovieTutorial.Administration.Repositories
 {
     public class UserPermissionRepository : BaseRepository
     {
+        public ITypeSource TypeSource { get; }
+        public ISqlConnections SqlConnections { get; }
+
         public UserPermissionRepository(IRequestContext context)
              : base(context)
         {
+        }
+
+        public UserPermissionRepository(IRequestContext context, ITypeSource typeSource, ISqlConnections sqlConnections)
+        : base(context)
+        {
+            TypeSource = typeSource ?? throw new ArgumentNullException(nameof(typeSource));
+            SqlConnections = sqlConnections ?? throw new ArgumentNullException(nameof(sqlConnections));
         }
 
         private static MyRow.RowFields Fld { get { return MyRow.Fields; } }
@@ -42,6 +52,10 @@ namespace MovieTutorial.Administration.Repositories
             var newList = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
             foreach (var p in request.Permissions)
                 newList[p.PermissionKey] = p.Granted ?? false;
+
+            var allowedKeys = ListPermissionKeys(this.Cache, this.SqlConnections, this.TypeSource);
+            if (newList.Keys.Any(x => !allowedKeys.Contains(x)))
+                throw new AccessViolationException();
 
             if (oldList.Count == newList.Count &&
                 oldList.All(x => newList.ContainsKey(x.Key) && newList[x.Key] == x.Value))

@@ -18,12 +18,12 @@ namespace MultiTenancy.Administration
         {
         }
                 
-        protected override void ApplyFilters(SqlQuery query)
-        {
-            base.ApplyFilters(query);
+        //protected override void ApplyFilters(SqlQuery query)
+        //{
+        //    base.ApplyFilters(query);
 
-            if (!Permissions.HasPermission(PermissionKeys.Tenants))
-                query.Where(Fld.TenantId == User.GetTenantId());
-        }
+        //    if (!Permissions.HasPermission(PermissionKeys.Tenants))
+        //        query.Where(Fld.TenantId == User.GetTenantId());
+        //}
     }
 }

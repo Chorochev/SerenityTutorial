@@ -31,15 +31,15 @@ namespace MultiTenancy.Administration
                 Row.TenantId = User.GetTenantId();
         }
 
-        protected override void ValidateRequest()
-        {
-            base.ValidateRequest();
+        //protected override void ValidateRequest()
+        //{
+        //    base.ValidateRequest();
 
-            if (IsUpdate)
-            {
-                if (Old.TenantId != User.GetTenantId())
-                    Permissions.ValidatePermission(PermissionKeys.Tenants, Localizer);
-            }
-        }
+        //    if (IsUpdate)
+        //    {
+        //        if (Old.TenantId != User.GetTenantId())
+        //            Permissions.ValidatePermission(PermissionKeys.Tenants, Localizer);
+        //    }
+        //}
     }
 }

@@ -11,7 +11,7 @@ namespace MultiTenancy.Administration
     [ReadPermission(PermissionKeys.Security)]
     [ModifyPermission(PermissionKeys.Security)]
     [LookupScript]
-    public sealed class RoleRow : Row<RoleRow.RowFields>, IIdRow, INameRow
+    public sealed class RoleRow : Row<RoleRow.RowFields>, IIdRow, INameRow, IMultiTenantRow
     {
         [Insertable(false), Updatable(false)]
         public int? TenantId
@@ -41,6 +41,11 @@ namespace MultiTenancy.Administration
         public RoleRow(RowFields fields)
             : base(fields)
         {
+        }
+
+        public Int32Field TenantIdField
+        {
+            get => Fields.TenantId;
         }
 
         public class RowFields : RowFieldsBase

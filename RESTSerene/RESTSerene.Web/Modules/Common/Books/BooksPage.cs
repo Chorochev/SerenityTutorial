@@ -9,7 +9,7 @@ namespace RESTSerene.Common.Pages
 {   
     public class BooksController : Controller
     {      
-        [Route("Books")]
+        [Route("~/Books")]
         public ActionResult Index([FromServices] ITwoLevelCache cache, [FromServices] ISqlConnections sqlConnections)
         {
             var model = new BooksPageModel()

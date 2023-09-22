@@ -9,6 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiTenancy.Web", "MultiTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTSerene.Web", "RESTSerene\RESTSerene.Web\RESTSerene.Web.csproj", "{2B4A5073-4208-4347-80A1-6EFBAC97C734}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTService", "RESTService\RESTService.csproj", "{6981E65C-6825-4AE0-A263-A48A847A14CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{531697A6-DD81-4D06-97F9-BF71509937C9}"
+	ProjectSection(SolutionItems) = preProject
+		create_table_books.sql = create_table_books.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +34,10 @@ Global
 		{2B4A5073-4208-4347-80A1-6EFBAC97C734}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B4A5073-4208-4347-80A1-6EFBAC97C734}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B4A5073-4208-4347-80A1-6EFBAC97C734}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6981E65C-6825-4AE0-A263-A48A847A14CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6981E65C-6825-4AE0-A263-A48A847A14CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6981E65C-6825-4AE0-A263-A48A847A14CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6981E65C-6825-4AE0-A263-A48A847A14CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

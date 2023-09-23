@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
+using RESTSerene.Web.RESTServices;
 using Serenity;
 using Serenity.Abstractions;
 using Serenity.Data;
@@ -155,6 +156,8 @@ namespace RESTSerene
             services.AddSingleton<INavigationModelFactory, Common.NavigationModelFactory>();
             services.AddReporting();
             services.AddSingleton<IDataMigrations, DataMigrations>();
+
+            services.AddTransient<IRESTTableClient, TableClient>();
         }
 
         public static void InitializeLocalTexts(IServiceProvider services)

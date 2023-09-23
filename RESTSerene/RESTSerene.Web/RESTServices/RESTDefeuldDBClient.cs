@@ -1,5 +1,7 @@
+using Microsoft.Extensions.Configuration;
 using RESTSerene.Common;
 using Serenity.Services;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
@@ -8,45 +10,55 @@ namespace RESTSerene.Web.RESTServices
 {
     public interface IRESTTableClient
     {
-        List<object> List(string tableName);
-        object Get(string tableName, int id);
+        List<T> List<T>(string tableName);
+        T Get<T>(string tableName, int id);
         void Delete(string tableName, int id);
-        void Insert(string tableName, object item);
-        void Update(string tableName, object item);
+        void Insert<T>(string tableName, T item);
+        void Update<T>(string tableName, T item);
     }
 
     public class TableClient : IRESTTableClient
     {
-        public TableClient() { }
+        private string baseUrl;
+        public TableClient(IConfiguration configuration) {
+            baseUrl = configuration.GetSection("RESTServiceSettings").GetValue<string>("Url");
+        }
 
         public void Delete(string tableName, int id)
         {
             throw new System.NotImplementedException();
         }
 
-        public object Get(string tableName, int id)
+        public T Get<T>(string tableName, int id)
+        {
+            using (var http = new HttpClient())
+            {
+                var path = new Uri(new Uri(baseUrl), $"{tableName}/{id}");
+                var result = http.GetAsync(path).GetAwaiter().GetResult();
+                var recordJson = result.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                var record = JsonSerializer.Deserialize<T>(recordJson);
+                return record;
+            }
+        }
+
+        public void Insert<T>(string tableName, T item)
         {
             throw new System.NotImplementedException();
         }
 
-        public void Insert(string tableName, object item)
-        {
-            throw new System.NotImplementedException();
+        public List<T> List<T>(string tableName)
+        {            
+            using (var http = new HttpClient())
+            {                
+                var path = new Uri(new Uri(baseUrl), tableName);
+                var result = http.GetAsync(path).GetAwaiter().GetResult();
+                var recordsJson = result.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                var records = JsonSerializer.Deserialize<List<T>>(recordsJson);
+                return records;
+            }                     
         }
 
-        public List<object> List(string tableName)
-        {
-            var records = new List<object>()
-                {
-                    new BookPageModel() { Id = 1, Title = "Остров сокровищ", Info = "Приключения про поиск пиратских сокровищ." },
-                    new BookPageModel() { Id = 2, Title = "Мастер и Маргарита", Info = "Про любовь." },
-                    new BookPageModel() { Id = 3, Title = "Война и Мир", Info = "Про войну." },
-                    new BookPageModel() { Id = 4, Title = "Война миров", Info = "Про войну с инопланетянами." }
-                };
-            return records;                 
-        }
-
-        public void Update(string tableName, object item)
+        public void Update<T>(string tableName, T item)
         {
             throw new System.NotImplementedException();
         }

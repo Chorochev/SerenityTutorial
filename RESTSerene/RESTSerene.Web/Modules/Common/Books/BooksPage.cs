@@ -14,11 +14,18 @@ namespace RESTSerene.Common.Pages
         public ActionResult Index([FromServices] IRESTTableClient restClient)
         {
             var model = new BooksPageModel();
-            model.Books = new List<BookPageModel>();
-            foreach (var item in restClient.List("books"))
+            model.Books = restClient.List<BookPageModel>("books");
+            return View(MVC.Views.Common.Books.BooksIndex, model);
+        }
+
+        [Route("~/Books/{id}")]
+        public ActionResult Index(int id, [FromServices] IRESTTableClient restClient)
+        {
+            var model = new BooksPageModel();
+            model.Books = new List<BookPageModel>()
             {
-                model.Books.Add((BookPageModel)item);
-            }
+                restClient.Get<BookPageModel>("books", id)
+            };
             return View(MVC.Views.Common.Books.BooksIndex, model);
         }
     };

@@ -14,11 +14,14 @@
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="4.5.3.3" />
     <PackageReference Include="FluentMigrator.Runner" Version="3.3.2" />
+    <PackageReference Include="JavaScriptEngineSwitcher.V8" Version="3.21.5" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.2" />
+    <PackageReference Include="Microsoft.ClearScript.V8.Native.win-x64" Version="7.4.3" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.2" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.0" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.7.4" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers" />
+    <PackageReference Include="React.AspNet" Version="5.2.12" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Serenity.Assets" Version="6.8.0" />

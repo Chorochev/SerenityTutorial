@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieTutorial.Web", "MovieT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiTenancy.Web", "MultiTenancy\MultiTenancy.Web\MultiTenancy.Web.csproj", "{D361F337-1133-483C-AFFB-810DD91360DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTSerene.Web", "RESTSerene\RESTSerene.Web\RESTSerene.Web.csproj", "{2B4A5073-4208-4347-80A1-6EFBAC97C734}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTSerene.Web", "RESTSerene\RESTSerene.Web\RESTSerene.Web.csproj", "{2B4A5073-4208-4347-80A1-6EFBAC97C734}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTService", "RESTService\RESTService.csproj", "{6981E65C-6825-4AE0-A263-A48A847A14CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTService", "RESTService\RESTService.csproj", "{6981E65C-6825-4AE0-A263-A48A847A14CD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{531697A6-DD81-4D06-97F9-BF71509937C9}"
 	ProjectSection(SolutionItems) = preProject

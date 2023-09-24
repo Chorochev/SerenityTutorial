@@ -1,0 +1,16 @@
+@model RESTSerene.Common.BooksPageModel
+@inject Serenity.ITextLocalizer Localizer
+@{
+    ViewData["Title"] = "REACT Page";
+    ViewData["PageId"] = "REACTPage";
+}
+
+@section ContentHeader {
+    <h1>@Localizer.Get("Navigation.REACTPage")</h1>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+}
+<div id="myAppReactRoot"></div>
+<script type="text/babel" src="@Url.Content("/Scripts/react/AppReactPage.js")"></script>

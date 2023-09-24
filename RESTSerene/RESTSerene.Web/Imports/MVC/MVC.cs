@@ -14,6 +14,11 @@ public static class Views
         {
             public const string DashboardIndex = "~/Modules/Common/Dashboard/DashboardIndex.cshtml";
         }
+
+        public static class REACTPage
+        {
+            public const string REACTIndex = "~/Modules/Common/REACTPage/REACTIndex.cshtml";
+        }
     }
 
     public static class Errors

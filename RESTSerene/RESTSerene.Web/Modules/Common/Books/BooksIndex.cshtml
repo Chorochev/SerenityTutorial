@@ -1,0 +1,26 @@
+@model RESTSerene.Common.BooksPageModel
+@inject Serenity.ITextLocalizer Localizer
+@{
+    ViewData["Title"] = "Books";
+    ViewData["PageId"] = "Books";
+}
+
+@section Head {
+@Html.StyleBundle("Pages/Books")
+@Html.ScriptBundle("Pages/Books")
+}
+
+@section ContentHeader {
+    <h1>@Localizer.Get("Navigation.Books")</h1>
+}
+
+<div>
+    @foreach (var item in Model.Books)
+    {
+        <div>
+            <div>@item.Id</div>
+            <div>@item.Title</div>
+            <div>@item.Info</div>
+        </div>
+    }
+</div>

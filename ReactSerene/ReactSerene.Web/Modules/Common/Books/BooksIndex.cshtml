@@ -1,0 +1,17 @@
+@inject Serenity.ITextLocalizer Localizer
+@{
+    ViewData["Title"] = "Books";
+    ViewData["PageId"] = "Books";
+}
+
+@section ContentHeader {
+    <h1>@Localizer.Get("Navigation.Books")</h1>
+}
+
+<div id="bookscontent">
+    <h2>Test Books page!</h2>
+</div>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.0/umd/react.development.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.0/umd/react-dom.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
+<script src="@Url.Content("~/Scripts/books/index.jsx")"></script>

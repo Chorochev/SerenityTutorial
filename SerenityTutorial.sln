@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{5316
 		create_table_books.sql = create_table_books.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactSerene.Web", "ReactSerene\ReactSerene.Web\ReactSerene.Web.csproj", "{06056EE7-368D-46F1-B998-EF9A0919213F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{6981E65C-6825-4AE0-A263-A48A847A14CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6981E65C-6825-4AE0-A263-A48A847A14CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6981E65C-6825-4AE0-A263-A48A847A14CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06056EE7-368D-46F1-B998-EF9A0919213F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06056EE7-368D-46F1-B998-EF9A0919213F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06056EE7-368D-46F1-B998-EF9A0919213F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06056EE7-368D-46F1-B998-EF9A0919213F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
